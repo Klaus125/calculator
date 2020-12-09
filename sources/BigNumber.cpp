@@ -7,6 +7,7 @@
 using namespace std;
 
 void BigNumber::cleanLeadZero() {
+    // test commit
     while (len > 1 && !s[len - 1]) len--;
 }
 
