@@ -3,4 +3,4 @@ project(work3)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(work3 sources/main.cpp Headers/BigNumber.h sources/BigNumber.cpp)
+add_executable(work3 sources/main.cpp headers/BigNumber.h sources/BigNumber.cpp)
