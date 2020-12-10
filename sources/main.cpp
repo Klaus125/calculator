@@ -9,33 +9,40 @@ int main() {
     char a[1000];
     char b[1000];
     char op;
-    //è¾“å…¥é‡å®šå‘åˆ°in.datæ–‡ä»¶
+
+    BigNumber dividend = 1;  // ±»³ıÊı
+    cout << "ÇëÊäÈëÊ×¸öÔËËãÊı"<<endl;
+    cin >> a;
+    BigNumber divisor(a);    // ³ıÊı
+
+    //ÊäÈëÖØ¶¨Ïòµ½in.datÎÄ¼ş
     while (1) {
-        cin >> a >> op >> b;
-        BigNumber lvalue(a);
-        BigNumber rvalue(b);
-        //å»æ‰å‰å¯¼é›¶
-        lvalue.cleanLeadZero();
-        rvalue.cleanLeadZero();
-        cout << lvalue << " " << op << " " << rvalue << " = ";
+        cout <<"ÊäÈëÔËËã·ûºÍ²Ù×÷Êı£¬ÖĞ¼äÒÔ¿Õ¸ñ·Ö¸î"<<endl;
+        cin >>op >> b;
+        BigNumber temp(b);
+        //È¥µôÇ°µ¼Áã
+//        divisor.cleanLeadZero();
+//        temp.cleanLeadZero();
         switch (op) {
             case '+':
-                cout << (lvalue + rvalue).str() << endl;
+                divisor = divisor +  temp * dividend;
+                cout << BigNumber::getNumericNotation(divisor, dividend) << endl;
                 break;
-            case '-':
-                if (lvalue < rvalue) cout << "-" << (rvalue - lvalue).str() << endl;
-                else cout << (lvalue - rvalue).str() << endl;
-                break;
+//            case '-':
+//                if (divisor < temp) cout << "-" << (temp - divisor).str() << endl;
+//                else cout << (divisor - temp).str() << endl;
+//                break;
             case '*':
-                cout << (lvalue * rvalue).str() << endl;
+                divisor = divisor * temp;
+                cout << BigNumber::getNumericNotation(divisor, dividend) << endl;
                 break;
             case '/':
-                cout << BigNumber::getNumericNotation(lvalue,rvalue)<<endl;
-//                cout << (lvalue / rvalue).str() << endl;
+                dividend = dividend * temp;
+                cout << BigNumber::getNumericNotation(divisor, dividend) << endl;
                 break;
-            case '%':
-                cout << (lvalue % rvalue).str() << endl;
-                break;
+//            case '%':
+//                cout << (divisor % temp).str() << endl;
+//                break;
         }
     }
     return 0;

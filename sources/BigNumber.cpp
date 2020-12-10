@@ -264,7 +264,7 @@ string BigNumber::getNumericNotation(BigNumber num1,BigNumber num2) {
     BigNumber addition  = num1 / num2;
     BigNumber remainder = num1 % num2;
 
-    // 1. 如果商不为0，对商进行处理，计算余数需要操作的位数，过程中记录余数
+    // 1. 如果商不为0，对商进行处理，计算余数需要操作的位数，过程中记录指数
     // 2. 如果商为0，完全操作余数，while循环，找到第一个不为0的小数位，过程中记录指数
 
     int res[digitNum + 1];
